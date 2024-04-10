@@ -8,21 +8,21 @@ router.get('/', (req,res) =>{
 })
 
 //retrieve data with try and catch  not working
-router.get('/:id',(req,res)=>{
-    try {
-        const id = req.params.id;
-        //const student = studentModule.getStudentById(id);
-       // console.log(student);
-        res.json(studentModules.getStudentById(id))
+// router.get('/:id',(req,res)=>{
+//     try {
+//         const id = req.params.id;
+//         //const student = studentModule.getStudentById(id);
+//        // console.log(student);
+//         res.json(studentModules.getStudentById(id))
         
-    } catch (error) {
-        res.status(400).json({message:'Error Retrieving Data'});
-    } 
-})
+//     } catch (error) {
+//         res.status(400).json({message:'Error Retrieving Data'});
+//     } 
+// })
 
 router.get('/:id',(req,res)=>{
     const id=req.params.id
-    res.json(studentModules.getStudentById(id))
+    res.json(studentModule.getStudentById(id))
 })
 
 
@@ -42,7 +42,7 @@ router.post('/',(req,res)=>{
     }
     else{
         const student = {id,name,course,age};
-        studentModules.addStudent(student);
+        studentModule.addStudent(student);
         res.status(200).json({
             student,
             message: "Student added successfully"
@@ -50,6 +50,18 @@ router.post('/',(req,res)=>{
     }
 })
 
+
+router.put('/:id',(req,res)=>{
+    const id=req.params.id;
+    const newData = req.body;
+    const result = studentModule.updateStudent(id,newData);
+    if( result !== null){
+        res.status(200).json(result);
+    }
+    else{
+        res.status(404).send("Student Not Found");
+    }
+})
 
 
 module.exports= router;
