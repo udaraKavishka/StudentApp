@@ -15,3 +15,11 @@
 // module.exports={
 //     getStudents,
 // }
+
+
+// let student=studentModel.getStudentById(req.params.id);
+//     if(student){
+//         res.json(student);
+//     }else{
+//         res.status(404).send('Student not found');
+//     }

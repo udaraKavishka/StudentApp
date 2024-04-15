@@ -25,7 +25,12 @@ function addStudent(student){
     students.push(student);
 }
 
-
+function updateStudent(id, newData){
+    const index= students.findIndex((student)=> student.id ===id);
+    if(index !==-1){
+        student[index]
+    }
+}
 
 
 module.exports= {
