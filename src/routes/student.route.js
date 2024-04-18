@@ -6,30 +6,29 @@ router.get('/', (req,res) =>{
     res.json(studentModule.getALlStudents())
 })
 
-//  retrieve data with try and catch  not working
-// router.get('/:id',(req,res)=>{
-//     try {
-//         const id = req.params.id;
-//         // const student = studentModule.getStudentById(id);
-//         // console.log(student);
-//         res.json(studentModule.getStudentById(id))
-        
-//     } catch (error) {
-//         res.status(400).json({error});
-//     } 
-// })
-
 router.get('/:id',(req,res)=>{
     try {
         const id = req.params.id;
-        res.json(studentModules.getStudentById(id))
-
+        // const student = studentModule.getStudentById(id);
+        // console.log(student);
+        res.json(studentModule.getStudentById(id))
+        
     } catch (error) {
         res.status(400).json({error});
-        
-    }
-    
+    } 
 })
+
+// router.get('/:id',(req,res)=>{
+//     try {
+//         const id = req.params.id;
+//         res.json(studentModules.getStudentById(id))
+
+//     } catch (error) {
+//         res.status(400).json({error});
+        
+//     }
+    
+// })
 
 // router.get('/:id',(req,res)=>{
 //     const id=req.params.id
