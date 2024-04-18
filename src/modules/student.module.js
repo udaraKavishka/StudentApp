@@ -46,8 +46,11 @@ function filterstudent(course,age,action){
     students.forEach((student)=> {
         if(action === 'IT' && student.course === course && student.age < age){
             out.push(student)
+        }else if (action !== 'IT' && student.course === course && student.age > age){
+            out.push(student)
         }
-    })
+    });
+    return out;
 }
 
 
@@ -57,6 +60,7 @@ module.exports= {
     addStudent,
     getStudentByCourse,
     updateStudent,
-    deleteStudent
+    deleteStudent,
+    filterstudent
 
 }

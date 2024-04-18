@@ -106,4 +106,16 @@ router.delete('/:id',(req,res)=> {
 });
 
 
+router.get('/:course/:age/:act',(req,res)=>{
+    try {
+        const course=req.params.course;
+        const age= req.params.age;
+        const act= req.params.act;
+        res.status(200).json(studentModule.filterstudent(course,age,act));
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+    
+})
+
 module.exports= router;
