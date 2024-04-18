@@ -28,8 +28,26 @@ function addStudent(student){
 function updateStudent(id, newData){
     const index= students.findIndex((student)=> student.id ===id);
     if(index !==-1){
-        student[index]
+        students[index]
     }
+}
+
+function deleteStudent(id){
+    const index= students.findIndex((student)=> student.id ===id);
+    if(index !==-1){
+        students.splice(index,1);
+    }
+    return  null;
+
+}
+
+function filterstudent(course,age,action){
+    let out=[];
+    students.forEach((student)=> {
+        if(action === 'IT' && student.course === course && student.age < age){
+            out.push(student)
+        }
+    })
 }
 
 
@@ -38,5 +56,7 @@ module.exports= {
     getStudentById,
     addStudent,
     getStudentByCourse,
+    updateStudent,
+    deleteStudent
 
 }
