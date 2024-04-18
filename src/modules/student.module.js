@@ -53,6 +53,14 @@ function filterstudent(course,age,action){
     return out;
 }
 
+function findskillById(id){
+    return students.find((student)=> student.id === id).skills;
+}
+
+function searchBySkill(skill){
+    return students.find((student)=> student.skills.includes(skill));
+}
+
 
 module.exports= {
     getALlStudents,
@@ -61,6 +69,7 @@ module.exports= {
     getStudentByCourse,
     updateStudent,
     deleteStudent,
-    filterstudent
-
+    filterstudent,
+    findskillById,
+    searchBySkill
 }

@@ -116,6 +116,25 @@ router.get('/:course/:age/:act',(req,res)=>{
         res.status(500).json({message:error.message});
     }
     
+});
+
+router.get('/:id/skills',(req,res)=>{
+    try {
+        const id= req.params.id;
+        res.status(200).json(studentModule.findskillById(id));
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
 })
+
+router.get('/skills/:sk',(req,res)=>{
+    try {
+        const sk= req.params.sk;
+        res.status(200).json(studentModule.searchBySkill(sk));
+        
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+});
 
 module.exports= router;
