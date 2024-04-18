@@ -7,16 +7,28 @@ router.get('/', (req,res) =>{
 })
 
 //retrieve data with try and catch  not working
+// router.get('/:id',(req,res)=>{
+//     try {
+//         const id = req.params.id;
+//         // const student = studentModule.getStudentById(id);
+//         // console.log(student);
+//         res.json(studentModules.getStudentById(id))
+        
+//     } catch (error) {
+//         res.status(400).json({error});
+//     } 
+// })
+
 router.get('/:id',(req,res)=>{
     try {
-        const id = req.params;
-        const student = studentModule.getStudentById(id);
-        console.log(student);
+        const id = req.params.id;
         res.json(studentModules.getStudentById(id))
-        
+
     } catch (error) {
-        res.status(400).json({message:'Error Retrieving Data'});
-    } 
+        res.status(400).json({error});
+        
+    }
+    
 })
 
 // router.get('/:id',(req,res)=>{
@@ -25,10 +37,17 @@ router.get('/:id',(req,res)=>{
 // })
 
 
-//retreive data using course name not working
+
 router.get('/:course',(req,res)=>{
-    const course= req.params.course;
+    try {
+        const course= req.params.course;
     res.json(studentModule.getStudentByCourse(course))
+
+    } catch (error) {
+        res.status(400).json({error});
+        
+    }
+    
 })
 
 
