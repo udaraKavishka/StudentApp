@@ -1,10 +1,14 @@
 const express= require('express');
 const router= express.Router();
 const studentModule= require('../modules/student.module.js');
+// const authRoute= require('../routes/auth.route.js');
+
 
 router.get('/', (req,res) =>{
     res.json(studentModule.getALlStudents())
 })
+
+
 
 router.get('/:id',(req,res)=>{
     try {
